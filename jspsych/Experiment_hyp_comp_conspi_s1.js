@@ -450,10 +450,10 @@ var instruction_questionnary = {
   choices: ['Continue']
 }
 
-//CRT (Cognitive Reflection Test)
-var CRT_item = [
+//crt (Cognitive Reflection Test)
+var crt_item = [
 {
-name: 'CRT_1',
+name: 'crt_1',
 item: "A bat and a ball cost £1.10 in total. The bat costs £1.00 more than the ball. How much does the ball cost?",
 choices: [
 {answer: "5 cents", correct: true},
@@ -463,7 +463,7 @@ choices: [
 ]
 },
 {
-name: 'CRT_2',
+name: 'crt_2',
 item: "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
 choices: [
 {answer: "5 minutes", correct: true},
@@ -473,7 +473,7 @@ choices: [
 ]
 },
 {
-name: 'CRT_3',
+name: 'crt_3',
 item: "In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?",
 choices: [
 {answer: "47 days", correct: true},
@@ -483,7 +483,7 @@ choices: [
 ]
 },
 {
-name: 'CRT_4',
+name: 'crt_4',
 item: "If 3 elves can wrap 3 toys in 1 hour, how many elves are needed to wrap 6 toys in 2 hours?",
 choices: [
 {answer: "3 elves", correct: true},
@@ -493,7 +493,7 @@ choices: [
 ]
 },
 {
-name: 'CRT_5',
+name: 'crt_5',
 item: "Jerry received both the 15th highest and the 15th lowest mark in the class. How many students are there in the class?",
 choices: [
 {answer: "29 students", correct: true},
@@ -503,7 +503,7 @@ choices: [
 ]
 },
 {
-name: 'CRT_6',
+name: 'crt_6',
 item: "In an athletics team tall members are three times as likely to win a medal than short members. This year the team has won 60 medals so far. How many of these have been won by short athletes?",
 choices: [
 {answer: "15 medals", correct: true},
@@ -514,7 +514,7 @@ choices: [
 }
 ];
 
-var CRT_question = {
+var crt_question = {
 type: jsPsychHtmlButtonResponse,
 stimulus: function(){
   return "<p class='instructions'>"+jsPsych.timelineVariable ('item')},
@@ -526,9 +526,9 @@ choices: function() {
 }
 }
 
-var CRT_procedure = {
-timeline: [CRT_question],
-timeline_variables: CRT_item,
+var crt_procedure = {
+timeline: [crt_question],
+timeline_variables: crt_item,
 randomize_order: true,
 data: {
   name: jsPsych.timelineVariable('name'),
@@ -537,8 +537,8 @@ data: {
 }
 };
 
-//Questionnary REI
-var REI_label = [
+//Questionnary rei
+var rei_label = [
 "<br>1<br><br>Strongly disagree",
 "<br>2",
 "<br>3",
@@ -548,26 +548,37 @@ var REI_label = [
 "<br>7<br><br>Strongly agree"
 ];
 
-var REI_questionnary = {
+var rei_an_questionnary = {
 type: jsPsychSurveyLikert,
 preamble:
 "<p class='instructions_questionnary'>For each statement below, please choose the appropriate number to indicate the extent to which you think these statements are true.</br></p>"+
 "<p class='instructions_questionnary'>There is no objectively true or false answer, we are interested in your personal opinions.</p>",
 questions: [
-{prompt: "I don't like to have to do a lot of thinking.", name: 'REI_1R', labels: REI_label, required: true},
-{prompt: "I try to avoid situations that require thinking in depth about something.", name: 'REI_2R', labels: REI_label, required: true},
-{prompt: "I prefer to do something that challenges my thinking abilities rather than something that requires little thought.", name: 'REI_3', labels: REI_label, required: true},
-{prompt: "I prefer complex to simple problems.", name: 'REI_4', labels: REI_label, required: true},
-{prompt: "Thinking hard and for a long time about something gives me little satisfaction.", name: 'REI_5R', labels: REI_label, required: true},
-{prompt: "I trust my initial feelings about people.", name: 'REI_6', labels: REI_label, required: true},
-{prompt: "I believe in trusting my hunches.", name: 'REI_7', labels: REI_label, required: true},
-{prompt: "My initial impressions of people are almost always right.", name: 'REI_8', labels: REI_label, required: true},
-{prompt: "When it comes to trusting people, I can usually rely on my gut feelings.", name: 'REI_9', labels: REI_label, required: true},
-{prompt: "I can usually feel when a person is right or wrong even if I can't explain how I know.", name: 'REI_10', labels: REI_label, required: true},
+{prompt: "I don't like to have to do a lot of thinking.", name: 'rei_an_1R', labels: rei_label, required: true},
+{prompt: "I try to avoid situations that require thinking in depth about something.", name: 'rei_an_2R', labels: rei_label, required: true},
+{prompt: "I prefer to do something that challenges my thinking abilities rather than something that requires little thought.", name: 'rei_an_3', labels: rei_label, required: true},
+{prompt: "I prefer complex to simple problems.", name: 'rei_an_4', labels: rei_label, required: true},
+{prompt: "Thinking hard and for a long time about something gives me little satisfaction.", name: 'rei_an_5', labels: rei_label, required: true},
 ],
 required_error: "Please, answer all questions.",
 button_label: 'Continue'
-}//Remettre les I et A
+}
+
+var rei_in_questionnary = {
+  type: jsPsychSurveyLikert,
+  preamble:
+  "<p class='instructions_questionnary'>For each statement below, please choose the appropriate number to indicate the extent to which you think these statements are true.</br></p>"+
+  "<p class='instructions_questionnary'>There is no objectively true or false answer, we are interested in your personal opinions.</p>",
+  questions: [
+  {prompt: "I trust my initial feelings about people.", name: 'rei_in_1', labels: rei_label, required: true},
+  {prompt: "I believe in trusting my hunches.", name: 'rei_in_2', labels: rei_label, required: true},
+  {prompt: "My initial impressions of people are almost always right.", name: 'rei_in_3', labels: rei_label, required: true},
+  {prompt: "When it comes to trusting people, I can usually rely on my gut feelings.", name: 'rei_in_4', labels: rei_label, required: true},
+  {prompt: "I can usually feel when a person is right or wrong even if I can't explain how I know.", name: 'rei_in_5', labels: rei_label, required: true},
+  ],
+  required_error: "Please, answer all questions.",
+  button_label: 'Continue'
+}
 
 //Attention check
 var attention_check = {
@@ -583,15 +594,17 @@ var attention_check = {
   button_label: 'Continue'
 }
 
-//var questionnary = {
-//  timeline: (function(){
-//    if (order_questionnary_randomization == "sicbs_first"){
-//      return [sicbs_questionnary, cms_questionnary]
-//    } else {
-//      return [cms_questionnary, sicbs_questionnary]
-//    }
-//  })()
-//}
+var rei_questionnary_randomization = jsPsych.randomization.sampleWithoutReplacement(["rei_an_first", "rei_in_first"], 1);
+
+var rei_questionnary = {
+  timeline: (function(){
+    if (rei_questionnary_randomization == "rei_an_first"){
+      return [rei_an_questionnary, rei_in_questionnary]
+    } else {
+      return [rei_in_questionnary, rei_an_questionnary]
+    }
+  })()
+}
 
 // Demographic Questions
 var instruction_demographic_questionnary = {
@@ -695,7 +708,7 @@ var waiting_demand = {
 //  study_id: study_id,
 //  session_id: session_id,
 //  true_side: true_side,
-//  order_questionnary_randomization: order_questionnary_randomization
+//  rei_questionnary_randomization: rei_questionnary_randomization
 //})
 
 const save_data = {
@@ -714,8 +727,8 @@ timeline.push
   scenario_procedure,
   attention_check,
   instruction_questionnary,
-  CRT_procedure,
-  REI_questionnary,
+  crt_procedure,
+  rei_questionnary,
   instruction_demographic_questionnary,
   genre,
   age,
