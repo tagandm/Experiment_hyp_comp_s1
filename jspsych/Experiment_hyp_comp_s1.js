@@ -697,24 +697,24 @@ var waiting_demand = {
 //var study_id = jsPsych.data.getURLVariable('STUDY_ID');
 //var session_id = jsPsych.data.getURLVariable('SESSION_ID');
 //          
-////Save data ---------------------------------------------------------------------------------
-//const subject_id = jsPsych.randomization.randomID(10);
-//const filename = `${subject_id}.csv`;
-//const experiment_id = "XXX";
-//
-//jsPsych.data.addProperties({
-//  subject_id: subject_id,
-//  prolific_id: prolific_id,
-//  study_id: study_id,
-//  session_id: session_id,
-//  true_side: true_side,
-//  rei_questionnary_randomization: rei_questionnary_randomization
-//})
+//Save data ---------------------------------------------------------------------------------
+const subject_id = jsPsych.randomization.randomID(10);
+const filename = `${subject_id}.csv`;
+const experiment_id = "hNmJVy9vRZK2";
+
+jsPsych.data.addProperties({
+  subject_id: subject_id,
+  prolific_id: prolific_id,
+  study_id: study_id,
+  session_id: session_id,
+  true_side: true_side,
+  rei_questionnary_randomization: rei_questionnary_randomization
+})
 
 const save_data = {
   type: jsPsychPipe,
   action: "save",
-  experiment_id: "hNmJVy9vRZK2",
+  experiment_id: experiment_id,
   filename: filename,
   data_string: ()=>jsPsych.data.get().csv()
 };
@@ -735,7 +735,7 @@ timeline.push
   search_check,
   comment,
   waiting_demand,
-  //save_data,
+  save_data,
   //prolific
   )
 
