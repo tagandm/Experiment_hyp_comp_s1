@@ -446,7 +446,7 @@ var scenario_procedure = {
 //Survey
 var reasoning_instruction = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: "<p class='instructions_questionnary'>In this section, you will be asked to solve problems  answer some questions about yourself.</p>",
+  stimulus: "<p class='instructions_questionnary'>In this section, you will be asked to solve problems and to answer some questions about yourself.</p>",
   choices: ['Continue']
 }
 
