@@ -619,12 +619,13 @@ var measures = {
         attention_check,
         reasoning_instruction,
         crt_procedure,
-        ...rei_questionnary]
+        rei_questionnary
+        ]
     } else {
       return [
         reasoning_instruction,
         crt_procedure,
-        ...rei_questionnary,
+        rei_questionnary,
         attention_check,
         scenario_instruction,
         scenario_procedure
@@ -732,10 +733,11 @@ const experiment_id = "hNmJVy9vRZK2";
 
 jsPsych.data.addProperties({
   subject_id: subject_id,
-  prolific_id: prolific_id,
-  study_id: study_id,
-  session_id: session_id,
+  //prolific_id: prolific_id,
+  //study_id: study_id,
+  //session_id: session_id,
   true_side: true_side,
+  conspiracy_or_reasoning_first_randomization:conspiracy_or_reasoning_first_randomization,
   rei_questionnary_randomization: rei_questionnary_randomization
 })
 
@@ -751,12 +753,7 @@ const save_data = {
 timeline.push 
   (browser_check,
   welcome,
-  scenario_instruction,
-  scenario_procedure,
-  attention_check,
-  instruction_questionnary,
-  crt_procedure,
-  rei_questionnary,
+  measures,
   instruction_demographic_questionnary,
   genre,
   age,
