@@ -444,9 +444,9 @@ var scenario_procedure = {
   }      
         
 //Survey
-var instruction_questionnary = {
+var reasoning_instruction = {
   type: jsPsychHtmlButtonResponse,
-  stimulus: "<p class='instructions_questionnary'>The task is now complete. We are now going to ask you a few questions about xxxx.</p>",
+  stimulus: "<p class='instructions_questionnary'>In this section, you will be asked to solve problems  answer some questions about yourself.</p>",
   choices: ['Continue']
 }
 
@@ -516,6 +516,7 @@ choices: [
 
 var crt_question = {
 type: jsPsychHtmlButtonResponse,
+preamble: `Please solve the problem below:`,
 stimulus: function(){
   return "<p class='instructions'>"+jsPsych.timelineVariable ('item')},
 choices: function() {
@@ -580,6 +581,18 @@ var rei_in_questionnary = {
   button_label: 'Continue'
 }
 
+var rei_questionnary_randomization = jsPsych.randomization.sampleWithoutReplacement(["rei_an_first", "rei_in_first"], 1);
+
+var rei_questionnary = {
+  timeline: (function(){
+    if (rei_questionnary_randomization == "rei_an_first"){
+      return [rei_an_questionnary, rei_in_questionnary]
+    } else {
+      return [rei_in_questionnary, rei_an_questionnary]
+    }
+  })()
+}
+
 //Attention check
 var attention_check = {
   type: jsPsychSurveyText,
@@ -594,17 +607,32 @@ var attention_check = {
   button_label: 'Continue'
 }
 
-var rei_questionnary_randomization = jsPsych.randomization.sampleWithoutReplacement(["rei_an_first", "rei_in_first"], 1);
+var conspiracy_or_reasoning_first_randomization = jsPsych.randomization.sampleWithoutReplacement(["conspiracy_task", "reasoning_task"], 1)[0];
 
-var rei_questionnary = {
+//order
+var measures = {
   timeline: (function(){
-    if (rei_questionnary_randomization == "rei_an_first"){
-      return [rei_an_questionnary, rei_in_questionnary]
+    if (conspiracy_or_reasoning_first_randomization == "conspiracy_task"){
+      return [
+        scenario_instruction,
+        scenario_procedure,
+        attention_check,
+        reasoning_instruction,
+        crt_procedure,
+        ...rei_questionnary]
     } else {
-      return [rei_in_questionnary, rei_an_questionnary]
+      return [
+        reasoning_instruction,
+        crt_procedure,
+        ...rei_questionnary,
+        attention_check,
+        scenario_instruction,
+        scenario_procedure
+      ]
     }
   })()
 }
+
 
 // Demographic Questions
 var instruction_demographic_questionnary = {
