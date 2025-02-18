@@ -456,10 +456,11 @@ var crt_item = [
 name: 'crt_1',
 item: "A bat and a ball cost £1.10 in total. The bat costs £1.00 more than the ball. How much does the ball cost?",
 choices: [
+{answer: "1 cent", correct: false},
 {answer: "5 cents", correct: true},
-{answer: "10 cents", correct: false},
 {answer: "9 cents", correct: false},
-{answer: "1 cent", correct: false}
+{answer: "10 cents", correct: false}
+
 ]
 },
 {
@@ -467,8 +468,8 @@ name: 'crt_2',
 item: "If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?",
 choices: [
 {answer: "5 minutes", correct: true},
-{answer: "100 minutes", correct: false},
 {answer: "20 minutes", correct: false},
+{answer: "100 minutes", correct: false},
 {answer: "500 minutes", correct: false}
 ]
 },
@@ -476,10 +477,10 @@ choices: [
 name: 'crt_3',
 item: "In a lake, there is a patch of lily pads. Every day, the patch doubles in size. If it takes 48 days for the patch to cover the entire lake, how long would it take for the patch to cover half of the lake?",
 choices: [
-{answer: "47 days", correct: true},
-{answer: "24 days", correct: false},
 {answer: "12 days", correct: false},
-{answer: "36 days", correct: false}
+{answer: "24 days", correct: false},
+{answer: "36 days", correct: false},
+{answer: "47 days", correct: true}
 ]
 },
 {
@@ -488,28 +489,29 @@ item: "If 3 elves can wrap 3 toys in 1 hour, how many elves are needed to wrap 6
 choices: [
 {answer: "3 elves", correct: true},
 {answer: "6 elves", correct: false},
-{answer: "12 elves", correct: false},
-{answer: "9 elves", correct: false}
+{answer: "9 elves", correct: false},
+{answer: "12 elves", correct: false}
 ]
 },
 {
 name: 'crt_5',
 item: "Jerry received both the 15th highest and the 15th lowest mark in the class. How many students are there in the class?",
 choices: [
+{answer: "1 student", correct: false},
+{answer: "15 students", correct: false},
 {answer: "29 students", correct: true},
 {answer: "30 students", correct: false},
-{answer: "1 student", correct: false},
-{answer: "15 students", correct: false}
 ]
 },
 {
 name: 'crt_6',
 item: "In an athletics team tall members are three times as likely to win a medal than short members. This year the team has won 60 medals so far. How many of these have been won by short athletes?",
 choices: [
+{answer: "10 medals", correct: false},
 {answer: "15 medals", correct: true},
 {answer: "20 medals", correct: false},
-{answer: "30 medals", correct: false},
-{answer: "10 medals", correct: false}
+{answer: "25 medals", correct: false},
+
 ]
 }
 ];
