@@ -713,21 +713,21 @@ var waiting_demand = {
   choices: ['Continue']
 }
 
-////prolific ----------------------------------------------------------------------------------
-//var prolific = {
-//  type: jsPsychHtmlKeyboardResponse,
-//  stimulus: "<p class='instructions'>You are finished with the last task. Thanks for participating!</p>"+
-//  "<p class='instructions'>Please wait a moment, you will automatically be redirected to prolific.</p>",
-//  trial_duration: 3000,
-//  choices: "NO_KEYS",
-//  on_finish: function(){
-//  window.location.href = "https://app.prolific.com/submissions/complete?cc=XXX"; // To complete
-//  }
-//}
-//var prolific_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
-//var study_id = jsPsych.data.getURLVariable('STUDY_ID');
-//var session_id = jsPsych.data.getURLVariable('SESSION_ID');
-//          
+//prolific ----------------------------------------------------------------------------------
+var prolific = {
+  type: jsPsychHtmlKeyboardResponse,
+  stimulus: "<p class='instructions'>You are finished with the last task. Thanks for participating!</p>"+
+  "<p class='instructions'>Please wait a moment, you will automatically be redirected to prolific.</p>",
+  trial_duration: 3000,
+  choices: "NO_KEYS",
+  on_finish: function(){
+  window.location.href = "https://app.prolific.com/submissions/complete?cc=C1FUFO8M"; // To complete
+  }
+}
+var prolific_id = jsPsych.data.getURLVariable('PROLIFIC_PID');
+var study_id = jsPsych.data.getURLVariable('STUDY_ID');
+var session_id = jsPsych.data.getURLVariable('SESSION_ID');
+          
 //Save data ---------------------------------------------------------------------------------
 const subject_id = jsPsych.randomization.randomID(10);
 const filename = `${subject_id}.csv`;
@@ -735,9 +735,9 @@ const experiment_id = "hNmJVy9vRZK2";
 
 jsPsych.data.addProperties({
   subject_id: subject_id,
-  //prolific_id: prolific_id,
-  //study_id: study_id,
-  //session_id: session_id,
+  prolific_id: prolific_id,
+  study_id: study_id,
+  session_id: session_id,
   true_side: true_side,
   conspiracy_or_reasoning_first_randomization:conspiracy_or_reasoning_first_randomization,
   rei_questionnary_randomization: rei_questionnary_randomization
@@ -763,7 +763,7 @@ timeline.push
   comment,
   waiting_demand,
   save_data,
-  //prolific
+  prolific
   )
 
 jsPsych.run(timeline)
