@@ -459,9 +459,9 @@ choices: [
 {answer: "1 cent", correct: false},
 {answer: "5 cents", correct: true},
 {answer: "9 cents", correct: false},
-{answer: "10 cents", correct: false}
-
-]
+{answer: "10 cents", correct: false},
+],
+correct_button: 1
 },
 {
 name: 'crt_2',
@@ -471,7 +471,8 @@ choices: [
 {answer: "20 minutes", correct: false},
 {answer: "100 minutes", correct: false},
 {answer: "500 minutes", correct: false}
-]
+],
+correct_button: 0
 },
 {
 name: 'crt_3',
@@ -481,7 +482,8 @@ choices: [
 {answer: "24 days", correct: false},
 {answer: "36 days", correct: false},
 {answer: "47 days", correct: true}
-]
+],
+correct_button: 3
 },
 {
 name: 'crt_4',
@@ -491,7 +493,8 @@ choices: [
 {answer: "6 elves", correct: false},
 {answer: "9 elves", correct: false},
 {answer: "12 elves", correct: false}
-]
+],
+correct_button: 0
 },
 {
 name: 'crt_5',
@@ -501,7 +504,8 @@ choices: [
 {answer: "15 students", correct: false},
 {answer: "29 students", correct: true},
 {answer: "30 students", correct: false},
-]
+],
+correct_button: 2
 },
 {
 name: 'crt_6',
@@ -511,8 +515,8 @@ choices: [
 {answer: "15 medals", correct: true},
 {answer: "20 medals", correct: false},
 {answer: "25 medals", correct: false},
-
-]
+],
+correct_button: 1
 }
 ];
 
@@ -522,9 +526,9 @@ preamble: `Please solve the problem below:`,
 stimulus: function(){
   return "<p class='instructions'>"+jsPsych.timelineVariable ('item')},
 choices: function() {
-  var choice = jsPsych.timelineVariable('choices');
-  return choice.map(function(choice){
-    return choice.answer;
+  var choices = jsPsych.timelineVariable('choices');
+  return choices.map(function(choices){
+    return choices.answer;
   })
 }
 }
@@ -536,7 +540,8 @@ randomize_order: true,
 data: {
   name: jsPsych.timelineVariable('name'),
   item: jsPsych.timelineVariable('item'),
-  choices: jsPsych.timelineVariable('choices')
+  choices: jsPsych.timelineVariable('choices'),
+  correct_choice: jsPsych.timelineVariable('correct_button')
 }
 };
 
