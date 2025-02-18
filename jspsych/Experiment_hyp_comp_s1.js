@@ -609,12 +609,12 @@ var attention_check = {
   button_label: 'Continue'
 }
 
-var conspiracy_or_reasoning_first_randomization = jsPsych.randomization.sampleWithoutReplacement(["conspiracy_task", "reasoning_task"], 1)[0];
+var conspiracy_or_reasoning_randomization = jsPsych.randomization.sampleWithoutReplacement(["conspiracy_task_first", "reasoning_task_first"], 1)[0];
 
 //order
 var measures = {
   timeline: (function(){
-    if (conspiracy_or_reasoning_first_randomization == "conspiracy_task"){
+    if (conspiracy_or_reasoning_randomization == "conspiracy_task_first"){
       return [
         scenario_instruction,
         scenario_procedure,
@@ -739,7 +739,7 @@ jsPsych.data.addProperties({
   study_id: study_id,
   session_id: session_id,
   true_side: true_side,
-  conspiracy_or_reasoning_first_randomization:conspiracy_or_reasoning_first_randomization,
+  conspiracy_or_reasoning_randomization:conspiracy_or_reasoning_randomization,
   rei_questionnary_randomization: rei_questionnary_randomization
 })
 
