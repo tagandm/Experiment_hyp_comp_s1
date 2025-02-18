@@ -522,8 +522,8 @@ preamble: `Please solve the problem below:`,
 stimulus: function(){
   return "<p class='instructions'>"+jsPsych.timelineVariable ('item')},
 choices: function() {
-  var random_choice = jsPsych.timelineVariable('choices');
-  return random_choice.map(function(choice){
+  var choice = jsPsych.timelineVariable('choices');
+  return choice.map(function(choice){
     return choice.answer;
   })
 }
