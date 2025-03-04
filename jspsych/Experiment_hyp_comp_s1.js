@@ -454,7 +454,7 @@ var reasoning_instruction = {
 var crt_item = [
 {
 name: 'crt_1',
-item: "A bat and a ball cost £1.10 in total. The bat costs £1.00 more than the ball. How much does the ball cost?",
+item: "A pen and a cap cost £1.10 in total. The pen costs £1.00 more than the cap. How much does the cap cost?",
 choices: [
 {answer: "1 cent", correct: false},
 {answer: "5 cents", correct: true},
