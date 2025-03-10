@@ -510,7 +510,7 @@ var attention_check = {
 }
 
 // Demographic Questions
-var instruction_demographic_questionnary = {
+var demographic_instruction = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
   "<p class='instructions_questionnary'>You are almost finished with the study. Please answer these last questions.</p>",
@@ -575,10 +575,18 @@ var comment = {
   button_label: 'Continue'
 }
 
+var debriefing = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus:
+  "<p class='instructions'>Regarding the classification task, half of the events were true and the other half were false." +
+  "If you want more information, you can contact us via the Prolific platform.",
+  choices: ['Continue']
+}
+
 var waiting_demand = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
-  "<p class='instructions'>You are now finished with the questions. " +
+  "<p class='instructions'>You are now finished with the study. " +
   "After clicking continue, the data will be saved while loading. " +
   "Please wait until the next page appears to exit. " +
   "Otherwise, we will have no proof that you have completed the study.</p>",
@@ -632,11 +640,12 @@ timeline.push
   attention_check,
   scenario_instruction,
   scenario_procedure,
-  instruction_demographic_questionnary,
+  demographic_instruction,
   genre,
   age,
   search_check,
   comment,
+  debriefing,
   waiting_demand,
   save_data,
   prolific
