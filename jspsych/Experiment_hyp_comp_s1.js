@@ -578,7 +578,7 @@ var comment = {
 var debriefing = {
   type: jsPsychHtmlButtonResponse,
   stimulus:
-  "<p class='instructions'>Regarding the classification task, half of the events were true and the other half were false." +
+  "<p class='instructions'>Regarding the classification task, half of the events were true and the other half were false. " +
   "If you want more information, you can contact us via the Prolific platform.",
   choices: ['Continue']
 }
